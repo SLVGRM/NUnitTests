@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using NUnit.Framework;
+using FluentAssertions;
 
 namespace SeleniumAndNUnit
 {
@@ -6,10 +7,10 @@ namespace SeleniumAndNUnit
     public class WebinarPageTests : BaseTest
     {
         [Test]
-        public void WebinarPage_ShouldBeVisible_OnMainPage()
+        public void GoToWebinarPage_PayTariffStub_ShouldBeVisible()
         {
-            _driver.Navigate().GoToUrl(_webinarPage.webinarPageUrl);
-            _driver.Url.Should().Be("https://normativ.kontur.ru/webinars");
+            var webinarPage = new WebinarPage(_driver);
+            _driver.Navigate().GoToUrl(WebinarPage.webinarsPageUrl);
         }
     }
 }

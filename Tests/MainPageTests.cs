@@ -9,7 +9,7 @@ namespace SeleniumAndNUnit
         [Test]
         public void QueryParameters_ShouldBeCorrect_OnSearchPage()
         {
-            _driver.Navigate().GoToUrl(_mainPage.mainPageUrl);
+            _driver.Navigate().GoToUrl(MainPage.mainPageUrl);
             var searchInput = _driver.FindElement(By.CssSelector("[data-tid='SearchInput']"));
             string query = "223";
             searchInput.Click();

@@ -20,3 +20,7 @@ obj/project.packagespec.json
 obj/rider.project.restore.info
 obj/rider.project.model.nuget.info
 obj/SeleniumAndNUnit.csproj.nuget.dgspec.json
+bin/Debug/net8.0/FluentAssertions.Json.dll
+bin/Debug/net8.0/SeleniumExtras.WaitHelpers.dll
+obj/Debug/net8.0/SeleniumAndNUnit.csproj.AssemblyReference.cache
+NUnit.sln.DotSettings.user

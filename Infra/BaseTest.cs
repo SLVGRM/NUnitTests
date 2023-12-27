@@ -8,12 +8,15 @@ namespace SeleniumAndNUnit
         protected IWebDriver _driver;
         protected WebinarPage _webinarPage;
         protected MainPage _mainPage;
-        
 
         [SetUp]
         public void SetUp()
         {
             _driver = new ChromeDriver();
+        }
+        
+        public BaseTest()
+        {
             _webinarPage = new WebinarPage(_driver);
             _mainPage = new MainPage(_driver);
         }
@@ -21,6 +24,7 @@ namespace SeleniumAndNUnit
         [TearDown]
         public void Cleanup()
         {
+            _driver.Close();
             _driver.Quit();
         }
     }
