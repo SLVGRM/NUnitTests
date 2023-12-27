@@ -1,7 +1,4 @@
-﻿using OpenQA.Selenium;
-using FluentAssertions;
-using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
+﻿using FluentAssertions;
 
 namespace SeleniumAndNUnit
 {
