@@ -5,11 +5,12 @@ namespace SeleniumAndNUnit
     public class WebinarPage : BasePage
     {
         public string GetWebinarsPageUrl() => GetPageUrl("webinars");
-        public IWebElement PayTariffStub { get; }
+
+        public IWebElement PayTariffStub { get; set; }
 
         public WebinarPage(IWebDriver driver) : base(driver)
         {
-            IWebElement PayTariffStub = driver.FindElement(By.CssSelector("[data-tid='PayTariffStub']"));
+            PayTariffStub = driver.FindElement(By.CssSelector("[data-tid='PayTariffStub']"));
         }
     }
 }
