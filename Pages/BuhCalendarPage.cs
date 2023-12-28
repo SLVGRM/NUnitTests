@@ -2,11 +2,11 @@
 
 namespace SeleniumAndNUnit;
 
-public class BuhCalendarPage : BasePage
+public class BuhCalendarPage : BaseTest
 {
     public IWebElement ElementName { get; }
     
-    public BuhCalendarPage(IWebDriver driver) : base(driver)
+    public BuhCalendarPage(IWebDriver driver) : base()
     {
         ElementName = driver.FindElement(By.CssSelector("selector"));
     }

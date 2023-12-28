@@ -2,11 +2,11 @@
 
 namespace SeleniumAndNUnit;
 
-public class QaAskQuestionPage : BasePage
+public class QaAskQuestionPage : BaseTest
 {
     public IWebElement ElementName { get; }
     
-    public QaAskQuestionPage(IWebDriver driver) : base(driver)
+    public QaAskQuestionPage(IWebDriver driver) : base()
     {
         ElementName = driver.FindElement(By.CssSelector("selector"));
     }

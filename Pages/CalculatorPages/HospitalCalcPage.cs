@@ -2,11 +2,11 @@
 
 namespace SeleniumAndNUnit.CalculatorPages;
 
-public class HospitalCalcPage : BasePage
+public class HospitalCalcPage : BaseTest
 {
     public IWebElement ElementName { get; }
     
-    public HospitalCalcPage(IWebDriver driver) : base(driver)
+    public HospitalCalcPage(IWebDriver driver) : base()
     {
         ElementName = driver.FindElement(By.CssSelector("selector"));
     }

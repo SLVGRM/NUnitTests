@@ -2,11 +2,11 @@
 
 namespace SeleniumAndNUnit
 {
-    public class WebinarPage : BasePage
+    public class WebinarPage : BaseTest
     {
         public IWebElement PayTariffStub { get; }
 
-        public WebinarPage(IWebDriver driver) : base(driver)
+        public WebinarPage(IWebDriver driver) : base()
         {
             PayTariffStub = driver.FindElement(By.CssSelector("[data-tid='PayTariffStub']"));
         }

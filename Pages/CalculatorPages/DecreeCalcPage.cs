@@ -2,11 +2,11 @@
 
 namespace SeleniumAndNUnit.CalculatorPages;
 
-public class DecreeCalcPage : BasePage
+public class DecreeCalcPage : BaseTest
 {
     public IWebElement Iframe { get; }
     
-    public DecreeCalcPage(IWebDriver driver) : base(driver)
+    public DecreeCalcPage(IWebDriver driver) : base()
     {
         Iframe = driver.FindElement(By.Id("CalcFrame"));
     }
