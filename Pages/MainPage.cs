@@ -4,12 +4,12 @@ namespace SeleniumAndNUnit
 {
     public class MainPage : BasePage
     {
-        public IWebElement SupportMeasures { get; }
-        public IWebElement BuhCalendarWidget { get; }
-        public IWebElement MainTheme { get; }
-        public IWebElement NewsContainer { get; }
-        public IWebElement SearchInput { get; }
-        public IWebElement SearchButton { get; }
+        public static IWebElement SupportMeasures { get; set; }
+        public static IWebElement BuhCalendarWidget { get; set; }
+        public static IWebElement MainTheme { get; set; }
+        public static IWebElement NewsContainer { get; set; }
+        public static IWebElement SearchInput { get; set; }
+        public static IWebElement SearchButton { get; set; }
 
         public MainPage(IWebDriver driver) : base(driver)
         {

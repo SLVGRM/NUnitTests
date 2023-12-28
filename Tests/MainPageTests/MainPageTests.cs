@@ -29,9 +29,10 @@ namespace SeleniumAndNUnit
         public void MainPage_MainBlocks_Visible()
         {
             GoToMain();
-            MainPage.MainTheme.Displayed.Should().BeTrue();
+            MainPage.MainTheme.Displayed.Should().BeTrue("разобраться почему коммент невидно, " +
+                                                         "возможно как раз из-за ошибки при инициализации MainPage");
             MainPage.SupportMeasures.Displayed.Should().BeTrue();
-            MainPage.NewsFeedItem.Displayed.Should().BeTrue();
+            MainPage.NewsContainer.Displayed.Should().BeTrue();
         }
         
         /// <summary>
@@ -41,7 +42,7 @@ namespace SeleniumAndNUnit
         public void GoToMain()
         {
             driver.Navigate().GoToUrl(LinksStorage.mainPageUrl);
-            MainPage.Initialize(driver);
+            MainPage mainPage = new MainPage(driver); //Как избавиться от инициализации?
         }
     }
 }
