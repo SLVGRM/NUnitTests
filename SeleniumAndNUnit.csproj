@@ -25,4 +25,10 @@
     <PackageReference Include="Selenium.WebDriver" Version="4.16.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tests\CalculatorTests\" />
+    <Folder Include="Tests\DocumentTests\" />
+    <Folder Include="Tests\SearchTests\" />
+  </ItemGroup>
+
 </Project>
