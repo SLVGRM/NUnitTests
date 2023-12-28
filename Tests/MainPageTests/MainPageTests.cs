@@ -1,6 +1,4 @@
-using OpenQA.Selenium;
 using FluentAssertions;
-using NUnit.Framework;
 
 namespace SeleniumAndNUnit
 {

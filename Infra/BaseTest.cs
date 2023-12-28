@@ -10,11 +10,10 @@ namespace SeleniumAndNUnit
         [SetUp]
         public void SetUp()
         {
-            driver = new ChromeDriver();
-        }
-        
-        public BaseTest()
-        {
+            var options = new ChromeOptions();
+            options.AddArguments("start-maximized", "--disable-extensions");
+            // options.AddArgument("--headless=new");
+            driver = new ChromeDriver(options);
         }
 
         [TearDown]

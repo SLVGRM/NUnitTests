@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-
 namespace SeleniumAndNUnit.CalculatorPages;
 
 public class VacationCalcPage : BasePage

@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-
 namespace SeleniumAndNUnit.Documents;
 
 public class OpenedDocumentTests : BasePage

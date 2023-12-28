@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-
-namespace SeleniumAndNUnit;
+﻿namespace SeleniumAndNUnit;
 
 public class LinksStorage 
     
@@ -13,6 +11,8 @@ public class LinksStorage
     public static string QaAskQuestionPageUrl => CombineUrls("consult/ask-question");
     public static string QaSharedQuestionsPageUrl => CombineUrls("consult/shared-questions");
     public static string BuhCalendarPageUrl => CombineUrls("buhcalendar");
+    public static string DecreeCalcPageUrl => CombineUrls("calculators/decree");
+    
 
     private static string CombineUrls(string relativePath) => $"{MainUrl}{relativePath}";
 }
