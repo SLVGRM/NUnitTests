@@ -5,16 +5,16 @@ using OpenQA.Selenium;
 namespace SeleniumAndNUnit
 
 {
-    public class BasePage
+    public class BasePage : BaseTest
     {
-        protected IWebDriver _driver;
+        protected IWebDriver driver;
         
         public BasePage(IWebDriver driver)
         {
-            this._driver = driver;
+            this.driver = driver;
         }
 
-        protected static string GetPageUrl(string path)
+        protected string GetPageUrl(string path)
         {
            var pageUrl = "https://normativ.kontur.ru/" + path;
            return pageUrl;

@@ -9,8 +9,8 @@ namespace SeleniumAndNUnit
         [Test]
         public void GoToWebinarPage_PayTariffStub_ShouldBeVisible()
         {
-            var webinarPage = new WebinarPage(_driver);
-            _driver.Navigate().GoToUrl(WebinarPage.webinarsPageUrl);
+            driver.Navigate().GoToUrl(WebinarPage.GetWebinarsPageUrl());
+            WebinarPage.PayTariffStub.Displayed.Should().BeTrue();
         }
     }
 }

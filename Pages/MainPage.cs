@@ -4,19 +4,18 @@ namespace SeleniumAndNUnit
 {
     public class MainPage : BasePage
     {
-        internal static string mainPageUrl = GetPageUrl("");
-        public static IWebElement SupportMeasures { get; }
+        public string GetmainPageUrl() => GetPageUrl("");
+        public IWebElement SupportMeasures { get; }
         public IWebElement BuhCalendarWidget { get; }
         public IWebElement MainTheme { get; }
         public IWebElement NewsContainer { get; }
-        
 
         public MainPage(IWebDriver driver) : base(driver)
         {
-            IWebElement SupportMeasures = driver.FindElement(By.CssSelector("[data-tid='SupportMeasures']"));
-            IWebElement BuhCalendarWidget = driver.FindElement(By.CssSelector("[data-tid='BuhCalendarWidget']"));
-            IWebElement MainTheme = driver.FindElement(By.CssSelector("[data-tid='MainTheme']"));
-            IWebElement NewsContainer = driver.FindElement(By.CssSelector("[data-tid='NewsContainer']"));
+            SupportMeasures = driver.FindElement(By.CssSelector("[data-tid='SupportMeasures']"));
+            BuhCalendarWidget = driver.FindElement(By.CssSelector("[data-tid='BuhCalendarWidget']"));
+            MainTheme = driver.FindElement(By.CssSelector("[data-tid='MainTheme']"));
+            NewsContainer = driver.FindElement(By.CssSelector("[data-tid='NewsContainer']"));
         }
     }
 }

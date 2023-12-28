@@ -9,13 +9,13 @@ namespace SeleniumAndNUnit
         [Test]
         public void QueryParameters_ShouldBeCorrect_OnSearchPage()
         {
-            _driver.Navigate().GoToUrl(MainPage.mainPageUrl);
-            var searchInput = _driver.FindElement(By.CssSelector("[data-tid='SearchInput']"));
+            driver.Navigate().GoToUrl(MainPage.GetmainPageUrl());
+            var searchInput = driver.FindElement(By.CssSelector("[data-tid='SearchInput']"));
             string query = "223";
             searchInput.Click();
             searchInput.SendKeys(query);
-            _driver.FindElement(By.CssSelector("[data-tid='SearchSubmitButton']")).Click();
-            var url = _driver.Url.ToString();
+            driver.FindElement(By.CssSelector("[data-tid='SearchSubmitButton']")).Click();
+            var url = driver.Url.ToString();
             var expectedPath = $"?query={query}&searching=true&sortby=1&searchquerysource=2&from=Main";
             var actualPath = new Uri(url).PathAndQuery;
             actualPath.Should().Contain(expectedPath);
