@@ -9,8 +9,10 @@ public class DecreeCalcTests
     [TestFixture]
     public class MainPageTests : BaseTest
     {
+        /// <summary>
+        /// Проверяем, что калькулятор в iframe загрузился
+        /// </summary>
         [Test]
-        ///summa
         public void DecreeCalc_IsVisible_Success ()
         {
             driver.Navigate().GoToUrl(LinksStorage.DecreeCalcPageUrl);
