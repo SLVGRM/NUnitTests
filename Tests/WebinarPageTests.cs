@@ -7,11 +7,12 @@ namespace SeleniumAndNUnit
     [TestFixture]
     public class WebinarPageTests : BaseTest
     {
+        
         [Test]
         public void GoToWebinarPage_PayTariffStub_ShouldBeVisible()
         {
+            driver.Navigate().GoToUrl(LinksStorage.WebinarsPageUrl);
             WebinarPage webinarPage = new WebinarPage(driver);
-            driver.Navigate().GoToUrl(webinarPage.GetWebinarsPageUrl());
             webinarPage.PayTariffStub.Displayed.Should().BeTrue();
         }
         

@@ -4,7 +4,6 @@ namespace SeleniumAndNUnit
 {
     public class MainPage : BasePage
     {
-        public string GetmainPageUrl() => GetPageUrl("");
         public IWebElement SupportMeasures { get; set; }
         public IWebElement BuhCalendarWidget { get; set; }
         public IWebElement MainTheme { get; set; }

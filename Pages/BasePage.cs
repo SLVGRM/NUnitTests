@@ -13,11 +13,5 @@ namespace SeleniumAndNUnit
         {
             this.driver = driver;
         }
-
-        protected string GetPageUrl(string path)
-        {
-           var pageUrl = "https://normativ.kontur.ru/" + path;
-           return pageUrl;
-        }
     }
 }

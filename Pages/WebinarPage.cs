@@ -4,8 +4,6 @@ namespace SeleniumAndNUnit
 {
     public class WebinarPage : BasePage
     {
-        public string GetWebinarsPageUrl() => GetPageUrl("webinars");
-
         public IWebElement PayTariffStub { get; set; }
 
         public WebinarPage(IWebDriver driver) : base(driver)
