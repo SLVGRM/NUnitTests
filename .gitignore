@@ -24,3 +24,11 @@ bin/Debug/net8.0/FluentAssertions.Json.dll
 bin/Debug/net8.0/SeleniumExtras.WaitHelpers.dll
 obj/Debug/net8.0/SeleniumAndNUnit.csproj.AssemblyReference.cache
 NUnit.sln.DotSettings.user
+obj/SeleniumAndNUnit.csproj.nuget.g.targets
+obj/SeleniumAndNUnit.csproj.nuget.g.props
+bin/Debug/net8.0/testhost.exe
+bin/Debug/net8.0/testhost.dll
+bin/Debug/net8.0/SeleniumAndNUnit.deps.json
+bin/Debug/net8.0/NuGet.Frameworks.dll
+bin/Debug/net8.0/cs
+bin/Debug/net8.0
