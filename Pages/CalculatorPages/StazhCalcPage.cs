@@ -2,12 +2,10 @@
 
 namespace SeleniumAndNUnit.CalculatorPages;
 
-public class StazhCalcPage : BaseTest
+public class StazhCalcPage : BasePage
 {
-    public IWebElement ElementName { get; }
-    
-    public StazhCalcPage(IWebDriver driver) : base()
+    public StazhCalcPage(IWebDriver driver) : base(driver)
     {
-        ElementName = driver.FindElement(By.CssSelector("selector"));
     }
+    public IWebElement ElementName => FindElement(By.CssSelector("selector"));
 }

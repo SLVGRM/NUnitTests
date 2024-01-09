@@ -1,12 +1,10 @@
 ﻿using OpenQA.Selenium;
 namespace SeleniumAndNUnit.CalculatorPages;
 
-public class VacationCalcPage : BaseTest
+public class VacationCalcPage : BasePage
 {
-    public IWebElement ElementName { get; }
-    
-    public VacationCalcPage(IWebDriver driver) : base()
+    public VacationCalcPage(IWebDriver driver)  : base(driver)
     {
-        ElementName = driver.FindElement(By.CssSelector("selector"));
     }
+    public IWebElement ElementName => FindElement(By.CssSelector("selector"));
 }

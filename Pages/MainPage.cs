@@ -2,23 +2,17 @@
 
 namespace SeleniumAndNUnit
 {
-    public class MainPage : BaseTest
+    public class MainPage : BasePage
     {
-        public IWebElement SupportMeasures { get; }
-        public IWebElement BuhCalendarWidget { get; }
-        public IWebElement MainTheme { get; }
-        public IWebElement NewsContainer { get; }
-        public IWebElement SearchInput { get; }
-        public IWebElement SearchButton { get; }
-
-        public MainPage(IWebDriver driver) : base()
+        public MainPage(IWebDriver driver) : base(driver)
         {
-            SupportMeasures = driver.FindElement(By.CssSelector("[data-tid='SupportMeasures']"));
-            BuhCalendarWidget = driver.FindElement(By.CssSelector("[data-tid='BuhCalendarWidget']"));
-            MainTheme = driver.FindElement(By.CssSelector("[data-tid='MainTheme']"));
-            NewsContainer = driver.FindElement(By.CssSelector("[data-tid='NewsContainer']"));
-            SearchInput = driver.FindElement(By.CssSelector("[data-tid='SearchInput']"));
-            SearchButton = driver.FindElement(By.CssSelector("[data-tid='SearchSubmitButton']"));
         }
+        
+        public IWebElement SupportMeasures => FindElement(By.CssSelector("[data-tid='SupportMeasures']"));
+        public IWebElement BuhCalendarWidget => FindElement(By.CssSelector("[data-tid='BuhCalendarWidget']"));
+        public IWebElement MainTheme => FindElement(By.CssSelector("[data-tid='MainTheme']"));
+        public IWebElement NewsContainer => FindElement(By.CssSelector("[data-tid='NewsContainer']"));
+        public IWebElement SearchInput => FindElement(By.CssSelector("[data-tid='SearchInput']"));
+        public IWebElement SearchButton => FindElement(By.CssSelector("[data-tid='SearchSubmitButton']"));
     }
 }

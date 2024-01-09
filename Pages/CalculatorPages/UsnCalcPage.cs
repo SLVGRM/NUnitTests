@@ -2,12 +2,10 @@
 
 namespace SeleniumAndNUnit.CalculatorPages;
 
-public class UsnCalcPage : BaseTest
+public class UsnCalcPage : BasePage
 {
-    public IWebElement ElementName { get; }
-    
-    public UsnCalcPage(IWebDriver driver) : base()
+    public UsnCalcPage(IWebDriver driver)  : base(driver)
     {
-        ElementName = driver.FindElement(By.CssSelector("selector"));
     }
+    public IWebElement ElementName => FindElement(By.CssSelector("selector"));
 }

@@ -8,14 +8,21 @@ namespace SeleniumAndNUnit
     [TestFixture]
     public class MainPageTests : BaseTest
     {
+        private MainPage mainPage;
+
+        [SetUp]
+        public void Setup()
+        {
+            mainPage = new MainPage(driver);
+            mainPage.NavigateToUrl(LinksStorage.mainPageUrl);
+        }
+        
         /// <summary>
         /// Проверяем что поиск работает
         /// </summary>
         [Test]
         public void MainPage_Searching_Success()
-        {
-            driver.Navigate().GoToUrl(LinksStorage.mainPageUrl);
-            MainPage mainPage = new MainPage(driver); //Как избавиться от инициализации?
+        { 
             mainPage.SearchInput.SendKeys("Налоговый кодекс");
             mainPage.SearchButton.Click();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -27,11 +34,8 @@ namespace SeleniumAndNUnit
         /// </summary>
         [Test]
         public void MainPage_MainBlocks_Visible()
-        {
-            driver.Navigate().GoToUrl(LinksStorage.mainPageUrl);
-            MainPage mainPage = new MainPage(driver); //Как избавиться от инициализации?
-            mainPage.MainTheme.Displayed.Should().BeTrue("разобраться почему коммент невидно, " +
-                                                         "возможно как раз из-за ошибки при инициализации MainPage");
+        { 
+            mainPage.MainTheme.Displayed.Should().BeTrue();
             mainPage.SupportMeasures.Displayed.Should().BeTrue();
             mainPage.NewsContainer.Displayed.Should().BeTrue();
         }
