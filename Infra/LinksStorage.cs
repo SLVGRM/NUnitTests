@@ -6,6 +6,8 @@ public class LinksStorage
     private static readonly string MainUrl = "https://normativ.kontur.ru/";
 
     public static string mainPageUrl => CombineUrls("");
+    public static string HugeDocPageUrl => CombineUrls("document?moduleId=1&documentId=462742");
+    public static string ClosedDocPageUrl => CombineUrls("document?moduleId=115&documentId=9349");
     public static string WebinarsPageUrl => CombineUrls("webinars");
     public static string DocumentOrderPageUrl => CombineUrls("document-order/order");
     public static string QaAskQuestionPageUrl => CombineUrls("consult/ask-question");
