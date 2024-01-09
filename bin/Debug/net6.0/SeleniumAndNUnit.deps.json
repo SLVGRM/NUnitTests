@@ -17,6 +17,7 @@
           "NUnit3TestAdapter": "4.5.0",
           "Selenium.Support": "4.16.2",
           "Selenium.WebDriver": "4.16.2",
+          "Selenium.WebDriver.ChromeDriver": "120.0.6099.10900",
           "coverlet.collector": "6.0.0"
         },
         "runtime": {
@@ -376,6 +377,7 @@
           }
         }
       },
+      "Selenium.WebDriver.ChromeDriver/120.0.6099.10900": {},
       "System.Configuration.ConfigurationManager/4.4.0": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "4.4.0"
@@ -530,6 +532,13 @@
       "sha512": "sha512-5BI/v+LpPma+o5ijzy1jDqnbYBBu99UQYPhvZkSBnXY6PoDKLP//aMiX8XODNJHHcRwGXeaxKR61ISO6ejXExA==",
       "path": "selenium.webdriver/4.16.2",
       "hashPath": "selenium.webdriver.4.16.2.nupkg.sha512"
+    },
+    "Selenium.WebDriver.ChromeDriver/120.0.6099.10900": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wCOew6C9ABCRK59DdzdJyoQKmVQEUrVQEvoDQdhnLWpW1OkFKG5pd9EK6B3j2vcqdNTBNM6++tAOhBMFezHm3w==",
+      "path": "selenium.webdriver.chromedriver/120.0.6099.10900",
+      "hashPath": "selenium.webdriver.chromedriver.120.0.6099.10900.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/4.4.0": {
       "type": "package",
