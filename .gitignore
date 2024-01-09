@@ -32,3 +32,5 @@ bin/Debug/net8.0/SeleniumAndNUnit.deps.json
 bin/Debug/net8.0/NuGet.Frameworks.dll
 bin/Debug/net8.0/cs
 bin/Debug/net8.0
+obj
+bin/Debug/net6.0

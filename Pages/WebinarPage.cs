@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace SeleniumAndNUnit
 {
@@ -7,6 +9,9 @@ namespace SeleniumAndNUnit
         public WebinarPage(IWebDriver driver) : base(driver)
         {
         }
-        public IWebElement PayTariffStub => FindElement(By.CssSelector("[data-tid='PayTariffStub']"));
+        
+        public readonly string PayTariffStub = "[data-tid='PayTariffStub']";
+        public readonly string WebinarItem = "webinar-item-image-overlay";
+        public readonly string TurboStub = "[data-tid='TurboModeStub']";
     }
 }

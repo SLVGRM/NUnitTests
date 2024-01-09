@@ -25,8 +25,7 @@ namespace SeleniumAndNUnit
         { 
             mainPage.SearchInput.SendKeys("Налоговый кодекс");
             mainPage.SearchButton.Click();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName("search-result__items")));
+            Hellpers.ElementShouldBeVisible(driver, By.ClassName(mainPage.SearchResults));
         }
         
         /// <summary>
@@ -35,9 +34,9 @@ namespace SeleniumAndNUnit
         [Test]
         public void MainPage_MainBlocks_Visible()
         { 
-            mainPage.MainTheme.Displayed.Should().BeTrue();
-            mainPage.SupportMeasures.Displayed.Should().BeTrue();
-            mainPage.NewsContainer.Displayed.Should().BeTrue();
+            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.MainTheme));
+            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.SupportMeasures));
+            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.NewsContainer));
         }
     }
 }

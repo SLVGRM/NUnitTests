@@ -16,9 +16,23 @@ namespace SeleniumAndNUnit
         }
 
         [Test]
-        public void GoToWebinarPage_PayTariffStub_ShouldBeVisible()
+        public void GoToWebinarPageByGuest_PayTariffStub_ShouldBeVisible()
         {
-            webinarPage.PayTariffStub.Displayed.Should().BeTrue();
+            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.PayTariffStub));
+        }
+        
+        [Test]
+        public void GoToWebinarPageByPaidUser_WebinarItem_ShouldBeVisible()
+        {
+            Hellpers.BrowseByUser(driver, true); 
+            Hellpers.ElementShouldBeVisible(driver, By.ClassName(webinarPage.WebinarItem));
+        }
+        
+        [Test]
+        public void GoToWebinarPageByDemoUser_Stub_ShouldBeVisible()
+        {
+            Hellpers.BrowseByUser(driver, false); 
+            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.TurboStub));
         }
     }
 }

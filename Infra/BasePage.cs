@@ -4,7 +4,7 @@ namespace SeleniumAndNUnit
 {
     public class BasePage
     {
-        protected IWebDriver driver;
+        protected readonly IWebDriver driver;
 
         public BasePage(IWebDriver driver)
         {
