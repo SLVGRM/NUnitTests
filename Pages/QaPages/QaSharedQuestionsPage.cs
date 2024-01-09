@@ -1,22 +1,21 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumAndNUnit
+namespace SeleniumAndNUnit;
+
+public class QaSharedQuestionsPage : BasePage
 {
-    public class QaSharedQuestionsPage : BasePage
+    public QaSharedQuestionsPage(IWebDriver driver) : base(driver)
     {
-        public QaSharedQuestionsPage(IWebDriver driver) : base(driver)
-        {
-        }
-        
-        public IWebElement QuestionForPublicUser =>  FindElement(By.CssSelector("[data-tid='QaShortenQuestionForPublicUserBody']"));
-        public IWebElement LoadingPageButton =>  FindElement(By.CssSelector("[data-tid='LoadingPageButton']"));
-        
-        
-        public string QaHotTag = "[data-tid='QaHotTag']";
-        public string QaTag = "[data-tid='QaTag']";
-        public string QaShortenQuestionForPublicUser = "[data-tid='QaShortenQuestionForPublicUser']";
-        public string QaNavMenuItem = "[data-tid='QaNavMenuItem']";
-        public string QaMessageBody = "[data-tid='QaMessageBody']";
-        public string LoadingButton = "[data-tid='LoadingPageButton']";
     }
+        
+    public IWebElement ShortenQuestionForPublicUserLink =>  FindElement(By.CssSelector("[data-tid='ShortenQuestionForPublicUserLink']"));
+    public IWebElement LoadingPageButton =>  FindElement(By.CssSelector("[data-tid='LoadingPageButton']"));
+        
+        
+    public readonly string QaHotTag = "[data-tid='QaHotTag']";
+    public readonly string QaTag = "[data-tid='QaTag']";
+    public readonly string QaShortenQuestionForPublicUser = "[data-tid='QaShortenQuestionForPublicUser']";
+    public readonly string QaNavMenuItem = "[data-tid='QaNavMenuItem']";
+    public readonly string QaMessageBody = "[data-tid='QaMessageBody']";
+    public readonly string LoadingButton = "[data-tid='LoadingPageButton']";
 }

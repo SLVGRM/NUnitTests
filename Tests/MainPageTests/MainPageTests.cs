@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 namespace SeleniumAndNUnit;
 
 [TestFixture]
+[Parallelizable(ParallelScope.Fixtures)]
 public class MainPageTests : BaseTest
 {
     private MainPage mainPage;

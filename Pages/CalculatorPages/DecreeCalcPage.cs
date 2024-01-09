@@ -10,5 +10,5 @@ public class DecreeCalcPage : BasePage
     
     public IWebElement Iframe => FindElement(By.Id("CalcFrame"));
 
-    public string RadioButtonsBlock = "SickListTexis_ChildrenNumber_NullableEnumRadioGroupControl";
+    public readonly string RadioButtonsBlock = "SickListTexis_ChildrenNumber_NullableEnumRadioGroupControl";
 }

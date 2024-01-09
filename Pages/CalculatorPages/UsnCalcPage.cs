@@ -8,5 +8,5 @@ public class UsnCalcPage : BasePage
     {
     }
     
-    public string UsnCalculator ="[data-tid='UsnCalculator']";
+    public readonly string UsnCalculator ="[data-tid='UsnCalculator']";
 }

@@ -8,5 +8,5 @@ public class HospitalCalcPage : BasePage
     {
     }
 
-    public string HospitalCalculator = "[data-tid='HospitalCalculator']";
+    public readonly string HospitalCalculator = "[data-tid='HospitalCalculator']";
 }

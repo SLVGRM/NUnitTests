@@ -8,5 +8,5 @@ public class PeniCalcPage : BasePage
     {
     }
     
-    public string PeniCalc = "penicalc-calculator-data";
+    public readonly string PeniCalc = "penicalc-calculator-data";
 }
