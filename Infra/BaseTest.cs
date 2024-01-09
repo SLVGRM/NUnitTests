@@ -1,28 +1,26 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
 
-namespace SeleniumAndNUnit
+
+namespace SeleniumAndNUnit;
+
+public class BaseTest
 {
-    public class BaseTest
+    protected IWebDriver driver;
+
+    [SetUp]
+    public void SetUp()
     {
-        protected IWebDriver driver;
+        var options = new ChromeOptions();
+        options.AddArguments("start-maximized", "--disable-extensions", "--no-sandbox");
+        // options.AddArgument("--headless=new");
+        driver = new ChromeDriver(options);
+    }
 
-        [SetUp]
-        public void SetUp()
-        {
-            var options = new ChromeOptions();
-            options.AddArguments("start-maximized", "--disable-extensions", "--no-sandbox");
-            // options.AddArgument("--headless=new");
-            driver = new ChromeDriver(options);
-        }
-
-        [TearDown]
-        public void Cleanup()
-        {
-            driver.Close();
-            driver.Quit();
-        }
+    [TearDown]
+    public void Cleanup()
+    {
+        driver.Close();
+        driver.Quit();
     }
 }

@@ -1,24 +1,23 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumAndNUnit
+namespace SeleniumAndNUnit;
+
+public class BasePage
 {
-    public class BasePage
+    protected readonly IWebDriver driver;
+
+    public BasePage(IWebDriver driver)
     {
-        protected readonly IWebDriver driver;
+        this.driver = driver;
+    }
 
-        public BasePage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+    public void NavigateToUrl(string url)
+    {
+        driver.Navigate().GoToUrl(url);
+    }
 
-        public void NavigateToUrl(string url)
-        {
-            driver.Navigate().GoToUrl(url);
-        }
-
-        public IWebElement FindElement(By by)
-        {
-            return driver.FindElement(by);
-        }
+    public IWebElement FindElement(By by)
+    {
+        return driver.FindElement(by);
     }
 }

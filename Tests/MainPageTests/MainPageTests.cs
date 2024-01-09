@@ -1,42 +1,63 @@
-using FluentAssertions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
 
-namespace SeleniumAndNUnit
+namespace SeleniumAndNUnit;
+
+[TestFixture]
+public class MainPageTests : BaseTest
 {
-    [TestFixture]
-    public class MainPageTests : BaseTest
-    {
-        private MainPage mainPage;
+    private MainPage mainPage;
 
-        [SetUp]
-        public void Setup()
-        {
-            mainPage = new MainPage(driver);
-            mainPage.NavigateToUrl(LinksStorage.mainPageUrl);
-        }
+    [SetUp]
+    public void Setup()
+    {
+        mainPage = new MainPage(driver);
+        mainPage.NavigateToUrl(LinksStorage.mainPageUrl);
+    }
         
-        /// <summary>
-        /// Проверяем что поиск работает
-        /// </summary>
-        [Test]
-        public void MainPage_Searching_Success()
-        { 
-            mainPage.SearchInput.SendKeys("Налоговый кодекс");
-            mainPage.SearchButton.Click();
-            Hellpers.ElementShouldBeVisible(driver, By.ClassName(mainPage.SearchResults));
-        }
+    /// <summary>
+    /// Проверяем что отображается поисковая выдача
+    /// </summary>
+    [Test]
+    public void MainPage_SearchResults_Visible()
+    { 
+        mainPage.SearchInput.SendKeys("Налоговый кодекс");
+        mainPage.SearchButton.Click();
+        Hellpers.ElementShouldBeVisible(driver, By.ClassName(mainPage.SearchResults));
+    }
         
-        /// <summary>
-        /// Проверяем, что загрузились блоки главной темы, мер поддержки и ленты
-        /// </summary>
-        [Test]
-        public void MainPage_MainBlocks_Visible()
-        { 
-            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.MainTheme));
-            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.SupportMeasures));
-            Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.NewsContainer));
-        }
+    /// <summary>
+    /// Проверяем, отображение MainTheme на главной
+    /// </summary>
+    [Test]
+    public void MainPage_MainTheme_Visible()
+    { 
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.MainTheme));
+    }
+        
+    /// <summary>
+    /// Проверяем, отображение SupportMeasures на главной
+    /// </summary>
+    [Test]
+    public void MainPage_SupportMeasures_Visible()
+    { 
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.SupportMeasures));
+    }
+        
+    /// <summary>
+    /// Проверяем, отображение ленты новостей на главной
+    /// </summary>
+    [Test]
+    public void MainPage_NewsFeed_Visible()
+    { 
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.NewsContainer));
+    }
+        
+    /// <summary>
+    /// Проверяем, отображение желтой плашки на главной
+    /// </summary>
+    [Test]
+    public void MainPage_YellowBar_Visible()
+    { 
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.YellowBar));
     }
 }

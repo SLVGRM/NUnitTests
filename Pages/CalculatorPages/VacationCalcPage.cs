@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+
 namespace SeleniumAndNUnit.CalculatorPages;
 
 public class VacationCalcPage : BasePage
@@ -6,5 +7,8 @@ public class VacationCalcPage : BasePage
     public VacationCalcPage(IWebDriver driver)  : base(driver)
     {
     }
-    public IWebElement ElementName => FindElement(By.CssSelector("selector"));
+    
+    public IWebElement Iframe => FindElement(By.Id("CalcFrame"));
+    
+    public string Hint = "PeriodExclusionsHintIcon";
 }

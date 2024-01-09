@@ -1,17 +1,14 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
 
-namespace SeleniumAndNUnit
+namespace SeleniumAndNUnit;
+
+public class WebinarPage : BasePage
 {
-    public class WebinarPage : BasePage
+    public WebinarPage(IWebDriver driver) : base(driver)
     {
-        public WebinarPage(IWebDriver driver) : base(driver)
-        {
-        }
-        
-        public readonly string PayTariffStub = "[data-tid='PayTariffStub']";
-        public readonly string WebinarItem = "webinar-item-image-overlay";
-        public readonly string TurboStub = "[data-tid='TurboModeStub']";
     }
+        
+    public readonly string PayTariffStub = "[data-tid='PayTariffStub']";
+    public readonly string WebinarItem = "webinar-item-image-overlay";
+    public readonly string TurboStub = "[data-tid='TurboModeStub']";
 }

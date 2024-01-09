@@ -12,6 +12,10 @@ public class LinksStorage
     public static string QaSharedQuestionsPageUrl => CombineUrls("consult/shared-questions");
     public static string BuhCalendarPageUrl => CombineUrls("buhcalendar");
     public static string DecreeCalcPageUrl => CombineUrls("calculators/decree");
+    public static string HositalCalcPageUrl => CombineUrls("calculators/hospital");
+    public static string PeniCalcPageUrl => CombineUrls("calculators/peni");
+    public static string UsnCalcPageUrl => CombineUrls("calculators/usn");
+    public static string VacationCalcPageUrl => CombineUrls("calculators/vacation");
     
 
     private static string CombineUrls(string relativePath) => $"{MainUrl}{relativePath}";
