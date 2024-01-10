@@ -8,36 +8,42 @@ public class Hellpers
 {
     public static void BrowseByUser(IWebDriver driver, bool isPaid)
     {
-        string loginSelector = "[data-tid='i-login']";
-        string passwordSelector = "[data-tid='Input__root']";
         string buttonSelector = "[data-tid='Button__root']";
+        string topBarLogin = "[data-tid='TopBarLogin']";
 
-        driver.FindElement(By.CssSelector("[data-tid='TopBarLogin']")).Click();
-    
+
+        ElementShouldBeVisible(driver, By.CssSelector(topBarLogin), true);
+
         if (isPaid)
         {
-            WaitAndSendKeys(driver, By.CssSelector(loginSelector), "Iam97@tester.ru");
-            WaitAndSendKeys(driver, By.CssSelector(passwordSelector), "123123");
+            WaitAndSendKeys(driver, "Iam97@tester.ru", "123123");
         }
         else
         {
             var credentials = "folmonumle@gufum.com";
-            WaitAndSendKeys(driver, By.CssSelector(loginSelector), credentials);
-            WaitAndSendKeys(driver, By.CssSelector(passwordSelector), credentials);
+            WaitAndSendKeys(driver, credentials, credentials);
         }
 
         driver.FindElement(By.CssSelector(buttonSelector)).Click();
     }
 
-    public static void ElementShouldBeVisible(IWebDriver driver, By by)
+    public static void ElementShouldBeVisible(IWebDriver driver, By by, bool click)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(ExpectedConditions.ElementIsVisible(by));
+        if (click)
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(by)).Click();
+        }
+        else
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
     }
 
-    private static void WaitAndSendKeys(IWebDriver driver, By by, string keys)
+    private static void WaitAndSendKeys(IWebDriver driver, string login, string pass)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(ExpectedConditions.ElementIsVisible(by)).SendKeys(keys);
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='i-login']"))).SendKeys(login);
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='Input__root']"))).SendKeys(pass);
     }
 }

@@ -22,8 +22,8 @@ public class QaSharedQuestionsPageTests : BaseTest
     [Test]
     public void QaSharedQuestionsPage_Tags_Visible()
     {
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaTag));
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaHotTag));
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaTag),false);
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaHotTag),false);
     }
         
     /// <summary>
@@ -32,7 +32,7 @@ public class QaSharedQuestionsPageTests : BaseTest
     [Test]
     public void QaSharedQuestionsPage_Menu_Visible()
     {
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaNavMenuItem));
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaNavMenuItem),false);
     }
         
     /// <summary>
@@ -42,8 +42,7 @@ public class QaSharedQuestionsPageTests : BaseTest
     public void QaSharedQuestionsPage_ExpertAnswers_Visible()
     {
         int firstpageamount = driver.FindElements(By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser)).Count;
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.LoadingButton));
-        qaSharedQuestionsPage.LoadingPageButton.Click();
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.LoadingButton), true);
         int secondpageamount = driver.FindElements(By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser)).Count;
         secondpageamount.Should().BeGreaterThan(firstpageamount);
     }
@@ -54,8 +53,7 @@ public class QaSharedQuestionsPageTests : BaseTest
     [Test]
     public void ClickOnSharedQuestion_ExpertAnswer_Visible()
     {
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser));
-        qaSharedQuestionsPage.ShortenQuestionForPublicUserLink.Click();
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaMessageBody));
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser), true);
+        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaMessageBody),false);
     }
 }
