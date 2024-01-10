@@ -16,14 +16,14 @@ public class Hellpers
     
         if (isPaid)
         {
-            driver.FindElement(By.CssSelector(loginSelector)).SendKeys("Iam97@tester.ru");
-            driver.FindElement(By.CssSelector(passwordSelector)).SendKeys("123123");
+            WaitAndSendKeys(driver, By.CssSelector(loginSelector), "Iam97@tester.ru");
+            WaitAndSendKeys(driver, By.CssSelector(passwordSelector), "123123");
         }
         else
         {
             var credentials = "folmonumle@gufum.com";
-            driver.FindElement(By.CssSelector(loginSelector)).SendKeys(credentials);
-            driver.FindElement(By.CssSelector(passwordSelector)).SendKeys(credentials);
+            WaitAndSendKeys(driver, By.CssSelector(loginSelector), credentials);
+            WaitAndSendKeys(driver, By.CssSelector(passwordSelector), credentials);
         }
 
         driver.FindElement(By.CssSelector(buttonSelector)).Click();
@@ -34,5 +34,10 @@ public class Hellpers
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         wait.Until(ExpectedConditions.ElementIsVisible(by));
     }
-    
+
+    private static void WaitAndSendKeys(IWebDriver driver, By by, string keys)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        wait.Until(ExpectedConditions.ElementIsVisible(by)).SendKeys(keys);
+    }
 }

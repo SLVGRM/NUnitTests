@@ -30,7 +30,7 @@ public class WebinarPageTests : BaseTest
     }
         
     [Test]
-    public void GoToWebinarPageByDemoUser_Stub_ShouldBeVisible()
+    public void GoToWebinarPageByDemoUser_TurboStub_ShouldBeVisible()
     {
         Hellpers.BrowseByUser(driver, false); 
         Hellpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.TurboStub));
