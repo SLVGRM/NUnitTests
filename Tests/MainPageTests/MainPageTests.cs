@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using SeleniumAndNUnit.Infra;
 
 namespace SeleniumAndNUnit;
 
@@ -20,10 +21,10 @@ public class MainPageTests : BaseTest
     /// </summary>
     [Test]
     public void MainPage_SearchResults_Visible()
-    { 
-        mainPage.SearchInput.SendKeys("Налоговый кодекс");
+    {
+        Helpers.WaitAndSendKeys(driver, mainPage.SearchInputBlock, "Налоговый кодекс");
         mainPage.SearchButton.Click();
-        Hellpers.ElementShouldBeVisible(driver, By.ClassName(mainPage.SearchResults));
+        Helpers.ElementShouldBeVisible(driver, By.ClassName(mainPage.SearchResults),false);
     }
         
     /// <summary>
@@ -32,7 +33,7 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_MainTheme_Visible()
     { 
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.MainTheme));
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.MainTheme),false);
     }
         
     /// <summary>
@@ -41,7 +42,7 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_SupportMeasures_Visible()
     { 
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.SupportMeasures));
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.SupportMeasures),false);
     }
         
     /// <summary>
@@ -50,7 +51,7 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_NewsFeed_Visible()
     { 
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.NewsContainer));
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.NewsContainer),false);
     }
         
     /// <summary>
@@ -59,6 +60,6 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_YellowBar_Visible()
     { 
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.YellowBar));
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.YellowBar),false);
     }
 }

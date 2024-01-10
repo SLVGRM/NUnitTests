@@ -9,7 +9,7 @@ public class QaSharedQuestionsPage : BasePage
     }
         
     public IWebElement ShortenQuestionForPublicUserLink =>  FindElement(By.CssSelector("[data-tid='ShortenQuestionForPublicUserLink']"));
-    public IWebElement LoadingPageButton =>  FindElement(By.CssSelector("[data-tid='LoadingPageButton']"));
+    public IWebElement LoadingPageButton =>  FindElement(By.CssSelector(LoadingButton));
         
         
     public readonly string QaHotTag = "[data-tid='QaHotTag']";

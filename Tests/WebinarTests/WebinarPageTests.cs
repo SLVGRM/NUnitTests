@@ -1,7 +1,7 @@
-﻿using FluentAssertions;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using SeleniumAndNUnit.Infra;
 
-namespace SeleniumAndNUnit;
+namespace SeleniumAndNUnit.Tests.WebinarTests;
 
 [TestFixture]
 [Parallelizable(ParallelScope.Fixtures)]
@@ -19,20 +19,20 @@ public class WebinarPageTests : BaseTest
     [Test]
     public void GoToWebinarPageByGuest_PayTariffStub_ShouldBeVisible()
     {
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.PayTariffStub));
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.PayTariffStub), false);
     }
         
     [Test]
     public void GoToWebinarPageByPaidUser_WebinarItem_ShouldBeVisible()
     {
-        Hellpers.BrowseByUser(driver, true); 
-        Hellpers.ElementShouldBeVisible(driver, By.ClassName(webinarPage.WebinarItem));
+        Helpers.BrowseByUser(driver, true); 
+        Helpers.ElementShouldBeVisible(driver, By.ClassName(webinarPage.WebinarItem), false);
     }
         
     [Test]
-    public void GoToWebinarPageByDemoUser_Stub_ShouldBeVisible()
+    public void GoToWebinarPageByDemoUser_TurboStub_ShouldBeVisible()
     {
-        Hellpers.BrowseByUser(driver, false); 
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.TurboStub));
+        Helpers.BrowseByUser(driver, false); 
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.TurboStub), false);
     }
 }

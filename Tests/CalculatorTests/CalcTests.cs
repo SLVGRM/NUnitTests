@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumAndNUnit.CalculatorPages;
+using SeleniumAndNUnit.Infra;
 
 namespace SeleniumAndNUnit.Tests.CalculatorTests;
 
@@ -16,18 +17,18 @@ public class CalcTests : BaseTest
         driver.Navigate().GoToUrl(LinksStorage.DecreeCalcPageUrl);
         DecreeCalcPage decreeCalc = new DecreeCalcPage(driver);
         driver.SwitchTo().Frame(decreeCalc.Iframe);
-        Hellpers.ElementShouldBeVisible(driver, By.Id(decreeCalc.RadioButtonsBlock));
+        Helpers.ElementShouldBeVisible(driver, By.Id(decreeCalc.RadioButtonsBlock), false);
     }
         
     /// <summary>
-    /// Проверяем, что калькулятор больничных загрузился
+    /// Проверяем, что калькулятор загрузился и сервис ответил
     /// </summary>
     [Test]
-    public void HospitalCalc_IsVisible_Success()
+    public void HospitalCalc_SubmitValidCalculation_Success()
     {
         driver.Navigate().GoToUrl(LinksStorage.HositalCalcPageUrl);
         HospitalCalcPage hospitalCalc = new HospitalCalcPage(driver);
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.HospitalCalculator));
+        SuccessfulHospitalCalcCalculation(hospitalCalc);
     }
         
     /// <summary>
@@ -38,7 +39,7 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.PeniCalcPageUrl);
         PeniCalcPage peniCalc = new PeniCalcPage(driver);
-        Hellpers.ElementShouldBeVisible(driver, By.ClassName(peniCalc.PeniCalc));
+        Helpers.ElementShouldBeVisible(driver, By.ClassName(peniCalc.PeniCalc),false);
     }
         
     /// <summary>
@@ -49,7 +50,7 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.UsnCalcPageUrl);
         UsnCalcPage usnCalculator = new UsnCalcPage(driver);
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(usnCalculator.UsnCalculator));
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(usnCalculator.UsnCalculator),false);
     }
         
     /// <summary>
@@ -61,6 +62,17 @@ public class CalcTests : BaseTest
         driver.Navigate().GoToUrl(LinksStorage.VacationCalcPageUrl);
         VacationCalcPage vacationCalc = new VacationCalcPage(driver);
         driver.SwitchTo().Frame(vacationCalc.Iframe); 
-        Hellpers.ElementShouldBeVisible(driver, By.Id(vacationCalc.Hint));
+        Helpers.ElementShouldBeVisible(driver, By.Id(vacationCalc.Hint),false);
+    }
+
+    private void SuccessfulHospitalCalcCalculation(HospitalCalcPage hospitalCalc)
+    {
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.DisabilityPeriodBegin),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.TodayButton),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.DisabilityPeriodEnd),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.TodayButton),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.InsuranceExperience),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.SubmitButton),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.NewCalculation),true);
     }
 }
