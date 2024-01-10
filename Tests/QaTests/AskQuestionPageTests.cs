@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SeleniumAndNUnit.Infra;
 
-namespace SeleniumAndNUnit;
+namespace SeleniumAndNUnit.Tests.QaTests;
 
 [TestFixture]
 [Parallelizable(ParallelScope.Fixtures)]
