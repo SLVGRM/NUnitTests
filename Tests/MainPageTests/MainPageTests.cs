@@ -20,8 +20,8 @@ public class MainPageTests : BaseTest
     /// </summary>
     [Test]
     public void MainPage_SearchResults_Visible()
-    { 
-        mainPage.SearchInput.SendKeys("Налоговый кодекс");
+    {
+        Hellpers.WaitAndSendKeys(driver, mainPage.SearchInputBlock, "Налоговый кодекс");
         mainPage.SearchButton.Click();
         Hellpers.ElementShouldBeVisible(driver, By.ClassName(mainPage.SearchResults),false);
     }
