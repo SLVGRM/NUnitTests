@@ -2,9 +2,9 @@
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace SeleniumAndNUnit;
+namespace SeleniumAndNUnit.Infra;
 
-public class Hellpers
+public class Helpers
 {
     public static void BrowseByUser(IWebDriver driver, bool isPaid)
     {

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumAndNUnit.CalculatorPages;
+using SeleniumAndNUnit.Infra;
 
 namespace SeleniumAndNUnit.Tests.CalculatorTests;
 
@@ -16,7 +17,7 @@ public class CalcTests : BaseTest
         driver.Navigate().GoToUrl(LinksStorage.DecreeCalcPageUrl);
         DecreeCalcPage decreeCalc = new DecreeCalcPage(driver);
         driver.SwitchTo().Frame(decreeCalc.Iframe);
-        Hellpers.ElementShouldBeVisible(driver, By.Id(decreeCalc.RadioButtonsBlock), false);
+        Helpers.ElementShouldBeVisible(driver, By.Id(decreeCalc.RadioButtonsBlock), false);
     }
         
     /// <summary>
@@ -27,7 +28,7 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.HositalCalcPageUrl);
         HospitalCalcPage hospitalCalc = new HospitalCalcPage(driver);
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.HospitalCalculator),false);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.HospitalCalculator),false);
     }
         
     /// <summary>
@@ -38,7 +39,7 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.PeniCalcPageUrl);
         PeniCalcPage peniCalc = new PeniCalcPage(driver);
-        Hellpers.ElementShouldBeVisible(driver, By.ClassName(peniCalc.PeniCalc),false);
+        Helpers.ElementShouldBeVisible(driver, By.ClassName(peniCalc.PeniCalc),false);
     }
         
     /// <summary>
@@ -49,7 +50,7 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.UsnCalcPageUrl);
         UsnCalcPage usnCalculator = new UsnCalcPage(driver);
-        Hellpers.ElementShouldBeVisible(driver, By.CssSelector(usnCalculator.UsnCalculator),false);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(usnCalculator.UsnCalculator),false);
     }
         
     /// <summary>
@@ -61,6 +62,6 @@ public class CalcTests : BaseTest
         driver.Navigate().GoToUrl(LinksStorage.VacationCalcPageUrl);
         VacationCalcPage vacationCalc = new VacationCalcPage(driver);
         driver.SwitchTo().Frame(vacationCalc.Iframe); 
-        Hellpers.ElementShouldBeVisible(driver, By.Id(vacationCalc.Hint),false);
+        Helpers.ElementShouldBeVisible(driver, By.Id(vacationCalc.Hint),false);
     }
 }
