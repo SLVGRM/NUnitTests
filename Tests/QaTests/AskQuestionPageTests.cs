@@ -4,7 +4,6 @@ using SeleniumAndNUnit.Infra;
 namespace SeleniumAndNUnit.Tests.QaTests;
 
 [TestFixture]
-[Parallelizable(ParallelScope.Fixtures)]
 public class AskQuestionPageTests : BaseTest
 {
     private QaAskQuestionPage qaAskQuestionPage;
