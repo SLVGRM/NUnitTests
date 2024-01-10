@@ -21,14 +21,14 @@ public class CalcTests : BaseTest
     }
         
     /// <summary>
-    /// Проверяем, что калькулятор больничных загрузился
+    /// Проверяем, что калькулятор загрузился и сервис ответил
     /// </summary>
     [Test]
-    public void HospitalCalc_IsVisible_Success()
+    public void HospitalCalc_SubmitValidCalculation_Success()
     {
         driver.Navigate().GoToUrl(LinksStorage.HositalCalcPageUrl);
         HospitalCalcPage hospitalCalc = new HospitalCalcPage(driver);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.HospitalCalculator),false);
+        SuccessfulHospitalCalcCalculation(hospitalCalc);
     }
         
     /// <summary>
@@ -63,5 +63,16 @@ public class CalcTests : BaseTest
         VacationCalcPage vacationCalc = new VacationCalcPage(driver);
         driver.SwitchTo().Frame(vacationCalc.Iframe); 
         Helpers.ElementShouldBeVisible(driver, By.Id(vacationCalc.Hint),false);
+    }
+
+    private void SuccessfulHospitalCalcCalculation(HospitalCalcPage hospitalCalc)
+    {
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.DisabilityPeriodBegin),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.TodayButton),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.DisabilityPeriodEnd),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.TodayButton),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.InsuranceExperience),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.SubmitButton),true);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.NewCalculation),true);
     }
 }

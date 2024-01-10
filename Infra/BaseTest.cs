@@ -13,7 +13,7 @@ public class BaseTest
     {
         var options = new ChromeOptions();
         options.AddArguments("start-maximized", "--disable-extensions", "--no-sandbox");
-        options.AddArgument("--headless=new");
+        // options.AddArgument("--headless=new");
         driver = new ChromeDriver(options);
     }
 
