@@ -9,4 +9,6 @@ public class OpenedDocumentTests : BasePage
     }
     
     public IWebElement ElementName => FindElement(By.CssSelector("selector"));
+
+    public string PartOfDocument = "js-doc-text-content-part-1";
 }
