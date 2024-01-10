@@ -19,20 +19,20 @@ public class WebinarPageTests : BaseTest
     [Test]
     public void GoToWebinarPageByGuest_PayTariffStub_ShouldBeVisible()
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.PayTariffStub), false);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.PayTariffStub));
     }
         
     [Test]
     public void GoToWebinarPageByPaidUser_WebinarItem_ShouldBeVisible()
     {
         Helpers.BrowseByUser(driver, true); 
-        Helpers.ElementShouldBeVisible(driver, By.ClassName(webinarPage.WebinarItem), false);
+        Helpers.ElementShouldBeVisible(driver, By.ClassName(webinarPage.WebinarItem), true);
     }
         
     [Test]
     public void GoToWebinarPageByDemoUser_TurboStub_ShouldBeVisible()
     {
         Helpers.BrowseByUser(driver, false); 
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.TurboStub), false);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.TurboStub));
     }
 }

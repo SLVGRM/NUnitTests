@@ -27,7 +27,7 @@ public class Helpers
         driver.FindElement(By.CssSelector(buttonSelector)).Click();
     }
 
-    public static void ElementShouldBeVisible(IWebDriver driver, By by, bool click)
+    public static void ElementShouldBeVisible(IWebDriver driver, By by, bool click = false)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         if (click)

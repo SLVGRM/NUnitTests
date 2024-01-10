@@ -23,17 +23,17 @@ public class QaSharedQuestionsPageTests : BaseTest
     [Test]
     public void QaSharedQuestionsPage_Tags_Visible()
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaTag),false);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaHotTag),false);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaTag));
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaHotTag));
     }
         
     /// <summary>
-    /// Отображается меню
+    /// Отображается блок меню "Вопросы экспертам"
     /// </summary>
     [Test]
     public void QaSharedQuestionsPage_Menu_Visible()
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaNavMenuItem),false);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaNavMenuItem));
     }
         
     /// <summary>
@@ -55,6 +55,6 @@ public class QaSharedQuestionsPageTests : BaseTest
     public void ClickOnSharedQuestion_ExpertAnswer_Visible()
     {
         Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser), true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaMessageBody),false);
+        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaMessageBody));
     }
 }
