@@ -15,7 +15,7 @@ public class MainPageTests : BaseTest
         mainPage = new MainPage(driver);
         mainPage.NavigateToUrl(LinksStorage.mainPageUrl);
     }
-        
+    
     /// <summary>
     /// Проверяем что отображается поисковая выдача
     /// </summary>

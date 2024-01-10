@@ -44,6 +44,7 @@ public class QaSharedQuestionsPageTests : BaseTest
     {
         int firstpageamount = driver.FindElements(By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser)).Count;
         Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.LoadingButton, true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.LoadingButton);
         int secondpageamount = driver.FindElements(By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser)).Count;
         secondpageamount.Should().BeGreaterThan(firstpageamount);
     }

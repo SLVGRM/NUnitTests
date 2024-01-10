@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using FluentAssertions.Extensions;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace SeleniumAndNUnit;
@@ -14,6 +15,7 @@ public class BaseTest
         options.AddArguments("start-maximized", "--disable-extensions", "--no-sandbox");
         // options.AddArgument("--headless=new");
         driver = new ChromeDriver(options);
+        driver.Manage().Timeouts().PageLoad = TimeSpan.FromMilliseconds(6000);
     }
 
     [TearDown]
