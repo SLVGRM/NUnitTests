@@ -12,7 +12,7 @@ public class Helpers
         string topBarLogin = "[data-tid='TopBarLogin']";
 
 
-        ElementShouldBeVisible(driver, By.CssSelector(topBarLogin), true);
+        WaitVisibilityAndClickByCssSelector(driver, topBarLogin, true);
 
         if (isPaid)
         {
@@ -27,16 +27,42 @@ public class Helpers
         driver.FindElement(By.CssSelector(buttonSelector)).Click();
     }
 
-    public static void ElementShouldBeVisible(IWebDriver driver, By by, bool click = false)
+    public static void WaitVisibilityAndClickByCssSelector(IWebDriver driver, string selector, bool click = false)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         if (click)
         {
-            wait.Until(ExpectedConditions.ElementIsVisible(by)).Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(selector))).Click();
         }
         else
         {
-            wait.Until(ExpectedConditions.ElementIsVisible(by));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(selector)));
+        }
+    }
+    
+    public static void WaitVisibilityAndClickById(IWebDriver driver, string selector, bool click = false)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        if (click)
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(By.Id(selector))).Click();
+        }
+        else
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(By.Id(selector)));
+        }
+    }
+    
+    public static void WaitVisibilityAndClickByClassName(IWebDriver driver, string selector, bool click = false)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        if (click)
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName(selector))).Click();
+        }
+        else
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName(selector)));
         }
     }
 

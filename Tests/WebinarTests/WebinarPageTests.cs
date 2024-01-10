@@ -16,23 +16,24 @@ public class WebinarPageTests : BaseTest
         webinarPage.NavigateToUrl(LinksStorage.WebinarsPageUrl);
     }
 
+    
     [Test]
     public void GoToWebinarPageByGuest_PayTariffStub_ShouldBeVisible()
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.PayTariffStub));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, webinarPage.PayTariffStub);
     }
         
     [Test]
     public void GoToWebinarPageByPaidUser_WebinarItem_ShouldBeVisible()
     {
         Helpers.BrowseByUser(driver, true); 
-        Helpers.ElementShouldBeVisible(driver, By.ClassName(webinarPage.WebinarItem), true);
+        Helpers.WaitVisibilityAndClickByClassName(driver, webinarPage.WebinarItem, true);
     }
         
     [Test]
     public void GoToWebinarPageByDemoUser_TurboStub_ShouldBeVisible()
     {
         Helpers.BrowseByUser(driver, false); 
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(webinarPage.TurboStub));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, webinarPage.TurboStub);
     }
 }

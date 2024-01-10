@@ -37,8 +37,8 @@ public class AskQuestionPageTests : BaseTest
         qaAskQuestionPage.QaAskQuestionAccountPlanOption.Click();
         qaAskQuestionPage.QaAskQuestionAcceptTermCheckbox.Click();
         qaAskQuestionPage.QaAskQuestionSubmit.Click();
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaAskQuestionPage.QaAskQuestionOpenQuestionButton), true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaAskQuestionPage.QaMessageDeleteButton), true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaAskQuestionPage.QaAskQuestionOpenQuestionButton, true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaAskQuestionPage.QaMessageDeleteButton, true);
         qaAskQuestionPage.QaDeleteMessagePopupSubmitButton.Click();
     }
 }

@@ -24,7 +24,7 @@ public class MainPageTests : BaseTest
     {
         Helpers.WaitAndSendKeys(driver, mainPage.SearchInputBlock, "Налоговый кодекс");
         mainPage.SearchButton.Click();
-        Helpers.ElementShouldBeVisible(driver, By.ClassName(mainPage.SearchResults));
+        Helpers.WaitVisibilityAndClickByClassName(driver, mainPage.SearchResults);
     }
         
     /// <summary>
@@ -33,7 +33,7 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_MainTheme_Visible()
     { 
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.MainTheme));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, mainPage.MainTheme);
     }
         
     /// <summary>
@@ -42,7 +42,7 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_SupportMeasures_Visible()
     { 
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.SupportMeasures));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, mainPage.SupportMeasures);
     }
         
     /// <summary>
@@ -51,7 +51,7 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_NewsFeed_Visible()
     { 
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.NewsContainer));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, mainPage.NewsContainer);
     }
         
     /// <summary>
@@ -60,6 +60,6 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPage_YellowBar_Visible()
     { 
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(mainPage.YellowBar));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, mainPage.YellowBar);
     }
 }

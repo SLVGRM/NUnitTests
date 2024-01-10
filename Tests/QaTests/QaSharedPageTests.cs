@@ -23,8 +23,8 @@ public class QaSharedQuestionsPageTests : BaseTest
     [Test]
     public void QaSharedQuestionsPage_Tags_Visible()
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaTag));
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaHotTag));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.QaTag);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.QaHotTag);
     }
         
     /// <summary>
@@ -33,7 +33,7 @@ public class QaSharedQuestionsPageTests : BaseTest
     [Test]
     public void QaSharedQuestionsPage_Menu_Visible()
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaNavMenuItem));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.QaNavMenuItem);
     }
         
     /// <summary>
@@ -43,7 +43,7 @@ public class QaSharedQuestionsPageTests : BaseTest
     public void QaSharedQuestionsPage_ExpertAnswers_Visible()
     {
         int firstpageamount = driver.FindElements(By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser)).Count;
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.LoadingButton), true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.LoadingButton, true);
         int secondpageamount = driver.FindElements(By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser)).Count;
         secondpageamount.Should().BeGreaterThan(firstpageamount);
     }
@@ -54,7 +54,7 @@ public class QaSharedQuestionsPageTests : BaseTest
     [Test]
     public void ClickOnSharedQuestion_ExpertAnswer_Visible()
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaShortenQuestionForPublicUser), true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(qaSharedQuestionsPage.QaMessageBody));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.QaShortenQuestionForPublicUser, true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaSharedQuestionsPage.QaMessageBody);
     }
 }

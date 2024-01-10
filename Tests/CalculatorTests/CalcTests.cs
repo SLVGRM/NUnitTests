@@ -17,7 +17,7 @@ public class CalcTests : BaseTest
         driver.Navigate().GoToUrl(LinksStorage.DecreeCalcPageUrl);
         DecreeCalcPage decreeCalc = new DecreeCalcPage(driver);
         driver.SwitchTo().Frame(decreeCalc.Iframe);
-        Helpers.ElementShouldBeVisible(driver, By.Id(decreeCalc.RadioButtonsBlock));
+        Helpers.WaitVisibilityAndClickById(driver, decreeCalc.RadioButtonsBlock);
     }
         
     /// <summary>
@@ -39,7 +39,7 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.PeniCalcPageUrl);
         PeniCalcPage peniCalc = new PeniCalcPage(driver);
-        Helpers.ElementShouldBeVisible(driver, By.ClassName(peniCalc.PeniCalc));
+        Helpers.WaitVisibilityAndClickByClassName(driver, peniCalc.PeniCalc);
     }
         
     /// <summary>
@@ -50,7 +50,7 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.UsnCalcPageUrl);
         UsnCalcPage usnCalculator = new UsnCalcPage(driver);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(usnCalculator.UsnCalculator));
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, usnCalculator.UsnCalculator);
     }
         
     /// <summary>
@@ -62,17 +62,17 @@ public class CalcTests : BaseTest
         driver.Navigate().GoToUrl(LinksStorage.VacationCalcPageUrl);
         VacationCalcPage vacationCalc = new VacationCalcPage(driver);
         driver.SwitchTo().Frame(vacationCalc.Iframe); 
-        Helpers.ElementShouldBeVisible(driver, By.Id(vacationCalc.Hint));
+        Helpers.WaitVisibilityAndClickById(driver, vacationCalc.Hint);
     }
 
     private void SuccessfulHospitalCalcCalculation(HospitalCalcPage hospitalCalc)
     {
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.DisabilityPeriodBegin),true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.TodayButton),true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.DisabilityPeriodEnd),true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.TodayButton),true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.InsuranceExperience),true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.SubmitButton),true);
-        Helpers.ElementShouldBeVisible(driver, By.CssSelector(hospitalCalc.NewCalculation),true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, hospitalCalc.DisabilityPeriodBegin,true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, hospitalCalc.TodayButton,true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, hospitalCalc.DisabilityPeriodEnd,true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, hospitalCalc.TodayButton,true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, hospitalCalc.InsuranceExperience,true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, hospitalCalc.SubmitButton,true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, hospitalCalc.NewCalculation,true);
     }
 }
