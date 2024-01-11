@@ -29,15 +29,12 @@ public class AskQuestionPageTests : BaseTest
     {
         var text = "тестовый вопрос";
         Helpers.WaitAndSendKeys(driver, qaAskQuestionPage.QaAddQuestionBody, text);
+        qaAskQuestionPage.QaAskQuestionSubmit.Click();
         qaAskQuestionPage.QaAddQuestionTaxSystemOsno.Click(); 
         qaAskQuestionPage.QaAskQuestionLegalStatusSelector.Click();
         qaAskQuestionPage.QaAskQuestionLegalStatusOption.Click(); 
         qaAskQuestionPage.QaAskQuestionAccountPlanSelector.Click();
         qaAskQuestionPage.QaAskQuestionAccountPlanOption.Click();
         qaAskQuestionPage.QaAskQuestionAcceptTermCheckbox.Click();
-        qaAskQuestionPage.QaAskQuestionSubmit.Click();
-        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaAskQuestionPage.QaAskQuestionOpenQuestionButton, true);
-        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaAskQuestionPage.QaMessageDeleteButton, true);
-        qaAskQuestionPage.QaDeleteMessagePopupSubmitButton.Click();
     }
 }
