@@ -27,9 +27,9 @@ public class Helpers
         driver.FindElement(By.CssSelector(buttonSelector)).Click();
     }
 
-    public static void WaitVisibilityAndClickByCssSelector(IWebDriver driver, string selector, bool click = false)
+    public static void WaitVisibilityAndClickByCssSelector(IWebDriver driver, string selector, bool click = false, int delay = 10)
     {
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         if (click)
         {
             wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(selector))).Click();
@@ -40,9 +40,9 @@ public class Helpers
         }
     }
     
-    public static void WaitVisibilityAndClickById(IWebDriver driver, string selector, bool click = false)
+    public static void WaitVisibilityAndClickById(IWebDriver driver, string selector, bool click = false, int delay = 10)
     {
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         if (click)
         {
             wait.Until(ExpectedConditions.ElementIsVisible(By.Id(selector))).Click();
@@ -53,9 +53,9 @@ public class Helpers
         }
     }
     
-    public static void WaitVisibilityAndClickByClassName(IWebDriver driver, string selector, bool click = false)
+    public static void WaitVisibilityAndClickByClassName(IWebDriver driver, string selector, bool click = false, int delay = 10)
     {
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         if (click)
         {
             wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName(selector))).Click();
@@ -66,16 +66,16 @@ public class Helpers
         }
     }
 
-    private static void WaitAndAuthenticate(IWebDriver driver, string login, string pass)
+    private static void WaitAndAuthenticate(IWebDriver driver, string login, string pass, int delay = 10)
     {
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='i-login']"))).SendKeys(login);
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='Input__root']"))).SendKeys(pass);
     }
     
-    public static void WaitAndSendKeys(IWebDriver driver, string selector, string keys)
+    public static void WaitAndSendKeys(IWebDriver driver, string selector, string keys, int delay = 10)
     {
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(selector))).SendKeys(keys);
     }
 }
