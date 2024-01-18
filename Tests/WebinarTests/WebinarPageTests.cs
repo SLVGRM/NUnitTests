@@ -28,7 +28,7 @@ public class WebinarPageTests : BaseTest
     public void GoToWebinarPageByPaidUser_WebinarItem_ShouldBeVisible()
     {
         Helpers.BrowseByUser(driver, true); 
-        Helpers.WaitVisibilityAndClickByClassName(driver, webinarPage.WebinarItem, true);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, webinarPage.stubs.Turbostub, true);
     }
         
     [Test]

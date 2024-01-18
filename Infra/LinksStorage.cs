@@ -18,6 +18,7 @@ public class LinksStorage
     public static string PeniCalcPageUrl => CombineUrls("calculators/peni");
     public static string UsnCalcPageUrl => CombineUrls("calculators/usn");
     public static string VacationCalcPageUrl => CombineUrls("calculators/vacation");
+    public static string FavoritesPageUrl => CombineUrls("personal/favourites");
     
 
     private static string CombineUrls(string relativePath) => $"{MainUrl}{relativePath}";

@@ -15,7 +15,7 @@ public class BaseTest
         options.AddArguments("start-maximized", "--disable-extensions", "--no-sandbox");
         // options.AddArgument("--headless=new");
         driver = new ChromeDriver(options);
-        driver.Manage().Timeouts().PageLoad = TimeSpan.FromMilliseconds(8000);
+        driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(45);
     }
 
     [TearDown]

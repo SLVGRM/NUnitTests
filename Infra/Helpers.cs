@@ -42,6 +42,11 @@ public class Helpers
     
     public static void WaitVisibilityAndClickById(IWebDriver driver, string selector, bool click = false, int delay = 10)
     {
+        if (delay > 30)
+        {
+            delay = 30;
+        }
+        
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         if (click)
         {
