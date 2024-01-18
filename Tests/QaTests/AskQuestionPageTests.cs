@@ -27,7 +27,7 @@ public class AskQuestionPageTests : BaseTest
         // AskAndDeleteQuestion();
     }
 
-    private void AskAndDeleteQuestion()
+    private void FillQuestionFieldsAndAndSendQuestion(bool sendquestion = false)
     {
         var text = "тестовый вопрос";
         Helpers.WaitAndSendKeys(driver, qaAskQuestionPage.QaAddQuestionBody, text);
@@ -38,5 +38,12 @@ public class AskQuestionPageTests : BaseTest
         qaAskQuestionPage.QaAskQuestionAccountPlanSelector.Click();
         qaAskQuestionPage.QaAskQuestionAccountPlanOption.Click();
         qaAskQuestionPage.QaAskQuestionAcceptTermCheckbox.Click();
+        if (sendquestion)
+        {
+            qaAskQuestionPage.QaAskQuestionSubmit.Click();
+            Helpers.WaitVisibilityAndClickByCssSelector(driver, qaAskQuestionPage.QaAskQuestionOpenQuestionButton, true);
+            Helpers.WaitVisibilityAndClickByCssSelector(driver, qaAskQuestionPage.QaMessageDeleteButton, true);
+            qaAskQuestionPage.QaDeleteMessagePopupSubmitButton.Click();
+        }
     }
 }

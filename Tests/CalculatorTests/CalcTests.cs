@@ -17,7 +17,7 @@ public class CalcTests : BaseTest
         driver.Navigate().GoToUrl(LinksStorage.DecreeCalcPageUrl);
         DecreeCalcPage decreeCalc = new DecreeCalcPage(driver);
         driver.SwitchTo().Frame(decreeCalc.Iframe);
-        Helpers.WaitVisibilityAndClickById(driver, decreeCalc.RadioButtonsBlock);
+        Helpers.WaitVisibilityAndClickById(driver, decreeCalc.RadioButtonsBlock, false, 30);
     }
         
     /// <summary>
@@ -61,8 +61,9 @@ public class CalcTests : BaseTest
     {
         driver.Navigate().GoToUrl(LinksStorage.VacationCalcPageUrl);
         VacationCalcPage vacationCalc = new VacationCalcPage(driver);
-        driver.SwitchTo().Frame(vacationCalc.Iframe); 
-        Helpers.WaitVisibilityAndClickById(driver, vacationCalc.Hint);
+        Helpers.WaitVisibilityAndClickById(driver, vacationCalc.IframeBlock, false, 30);
+        // driver.SwitchTo().Frame(vacationCalc.Iframe); 
+        // Helpers.WaitVisibilityAndClickById(driver, vacationCalc.Iframe);
     }
 
     private void SuccessfulHospitalCalcCalculation(HospitalCalcPage hospitalCalc)

@@ -8,7 +8,9 @@ public class VacationCalcPage : BasePage
     {
     }
     
-    public IWebElement Iframe => FindElement(By.Id("CalcFrame"));
+    public IWebElement Iframe => FindElement(By.Id(IframeBlock));
+    
+    public readonly string  IframeBlock = "CalcFrame";
     
     public readonly string Hint = "PeriodExclusionsHintIcon";
 }
