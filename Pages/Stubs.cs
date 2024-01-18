@@ -6,7 +6,7 @@ namespace SeleniumAndNUnit
     {
         public string Turbostub => "[data-tid='TurboModeStub']";
 
-        public Stubs(IWebDriver driver) : base()
+        public Stubs() : base()
         {
         }
     }

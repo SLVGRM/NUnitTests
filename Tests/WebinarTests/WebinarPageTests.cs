@@ -12,7 +12,7 @@ public class WebinarPageTests : BaseTest
     [SetUp]
     public void Setup()
     {
-        var stubs = new Stubs(driver);
+        var stubs = new Stubs();
         webinarPage = new WebinarPage(driver, stubs);
         webinarPage.NavigateToUrl(LinksStorage.WebinarsPageUrl);
     }

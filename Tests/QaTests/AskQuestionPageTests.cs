@@ -11,7 +11,7 @@ public class AskQuestionPageTests : BaseTest
     [SetUp]
     public void Setup()
     {
-        Stubs stubs = new Stubs(driver);
+        Stubs stubs = new Stubs();
         qaAskQuestionPage = new QaAskQuestionPage(driver, stubs);
         qaAskQuestionPage.NavigateToUrl(LinksStorage.QaAskQuestionPageUrl);
     }
