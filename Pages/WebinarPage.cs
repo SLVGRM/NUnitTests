@@ -4,11 +4,12 @@ namespace SeleniumAndNUnit;
 
 public class WebinarPage : BasePage
 {
-    public WebinarPage(IWebDriver driver) : base(driver)
+    public Stubs stubs { get; }
+    public WebinarPage(IWebDriver driver, Stubs stubs) : base(driver)
     {
+        this.stubs = stubs;
     }
-        
+    
     public readonly string PayTariffStub = "[data-tid='PayTariffStub']";
     public readonly string WebinarItem = "webinar-item-image-overlay";
-    public readonly string TurboStub = "[data-tid='TurboModeStub']";
 }

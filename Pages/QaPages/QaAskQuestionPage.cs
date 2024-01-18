@@ -4,8 +4,10 @@ namespace SeleniumAndNUnit;
 
 public class QaAskQuestionPage : BasePage
 {
-    public QaAskQuestionPage(IWebDriver driver) : base(driver)
+    public Stubs stubs { get; }
+    public QaAskQuestionPage(IWebDriver driver, Stubs stubs) : base(driver)
     {
+        this.stubs = stubs;
     }
     
     public string QaAddQuestionBody = "[data-tid='QaAddQuestionBody']";

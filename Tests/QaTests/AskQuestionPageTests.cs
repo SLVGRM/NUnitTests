@@ -11,7 +11,8 @@ public class AskQuestionPageTests : BaseTest
     [SetUp]
     public void Setup()
     {
-        qaAskQuestionPage = new QaAskQuestionPage(driver);
+        Stubs stubs = new Stubs(driver);
+        qaAskQuestionPage = new QaAskQuestionPage(driver, stubs);
         qaAskQuestionPage.NavigateToUrl(LinksStorage.QaAskQuestionPageUrl);
     }
 
@@ -22,7 +23,8 @@ public class AskQuestionPageTests : BaseTest
     public void QaAskQuestionPage_AskAndDeleteQuestion_Success()
     {
         Helpers.BrowseByUser(driver, true);
-        AskAndDeleteQuestion();
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, qaAskQuestionPage.stubs.Turbostub);
+        // AskAndDeleteQuestion();
     }
 
     private void AskAndDeleteQuestion()

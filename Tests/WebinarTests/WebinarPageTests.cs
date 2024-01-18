@@ -12,7 +12,8 @@ public class WebinarPageTests : BaseTest
     [SetUp]
     public void Setup()
     {
-        webinarPage = new WebinarPage(driver);
+        var stubs = new Stubs(driver);
+        webinarPage = new WebinarPage(driver, stubs);
         webinarPage.NavigateToUrl(LinksStorage.WebinarsPageUrl);
     }
 
@@ -34,6 +35,6 @@ public class WebinarPageTests : BaseTest
     public void GoToWebinarPageByDemoUser_TurboStub_ShouldBeVisible()
     {
         Helpers.BrowseByUser(driver, false); 
-        Helpers.WaitVisibilityAndClickByCssSelector(driver, webinarPage.TurboStub);
+        Helpers.WaitVisibilityAndClickByCssSelector(driver, webinarPage.stubs.Turbostub);
     }
 }
