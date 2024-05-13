@@ -1,8 +1,10 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using OpenQA.Selenium;
 using SeleniumAndNUnit.Infra;
 
 namespace SeleniumAndNUnit.Tests.MainPageTests;
 
+[Parallelizable(ParallelScope.Fixtures)]
 public class SearchPageTests : BaseTest
 {
     private MainPage mainPage;
@@ -22,6 +24,7 @@ public class SearchPageTests : BaseTest
     [TestCase("нологовый кодекс")]
     [TestCase("транспортный налог")]
     [TestCase("БОЧ рВФ 260602")]
+    [TestCase("Для предпринимателя цель выхода на новые рынки — найти больше клиентов, увеличить оборот и в итоге нарастить чистую прибыль. Это практически то же самое, как открыть бизнес ещё раз, но с нюансами. Пер")]
     public void SearchPage_SearchResults_Visible(string searchText)
     {
         Helpers.WaitAndSendKeys(driver, mainPage.SearchInputBlock, searchText);
