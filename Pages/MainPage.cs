@@ -15,6 +15,7 @@ public class MainPage : BasePage
     public readonly string NewsContainer = "[data-tid='NewsContainer']";
     public readonly string YellowBar = "[data-tid='HeaderNotification']";
     public readonly string SearchInputBlock = "[data-tid='SearchInput']";
+    public readonly string NotFoundBlock = "[data-tid='SearchResultsNotFound']";
     
         
     public IWebElement SearchInput => FindElement(By.CssSelector(SearchInputBlock));

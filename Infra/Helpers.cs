@@ -27,7 +27,7 @@ public class Helpers
         driver.FindElement(By.CssSelector(buttonSelector)).Click();
     }
 
-    public static void WaitVisibilityAndClickByCssSelector(IWebDriver driver, string selector, bool click = false, int delay = 10)
+    public static void WaitVisibilityAndClickByCssSelector(IWebDriver driver, string selector, bool click = false, int delay = 20)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         if (click)
@@ -40,7 +40,7 @@ public class Helpers
         }
     }
     
-    public static void WaitVisibilityAndClickById(IWebDriver driver, string selector, bool click = false, int delay = 10)
+    public static void WaitVisibilityAndClickById(IWebDriver driver, string selector, bool click = false, int delay = 20)
     {
         if (delay > 30)
         {
@@ -58,7 +58,7 @@ public class Helpers
         }
     }
     
-    public static void WaitVisibilityAndClickByClassName(IWebDriver driver, string selector, bool click = false, int delay = 10)
+    public static void WaitVisibilityAndClickByClassName(IWebDriver driver, string selector, bool click = false, int delay = 20)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         if (click)
@@ -71,16 +71,30 @@ public class Helpers
         }
     }
 
-    private static void WaitAndAuthenticate(IWebDriver driver, string login, string pass, int delay = 10)
+    private static void WaitAndAuthenticate(IWebDriver driver, string login, string pass, int delay = 20)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='i-login']"))).SendKeys(login);
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='Input__root']"))).SendKeys(pass);
     }
     
-    public static void WaitAndSendKeys(IWebDriver driver, string selector, string keys, int delay = 10)
+    public static void WaitAndSendKeys(IWebDriver driver, string selector, string keys, int delay = 20)
     {
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(delay));
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(selector))).SendKeys(keys);
+    }
+    
+    public static void Logging(IWebDriver driver)
+    {
+        var logs = driver.Manage().Logs.GetLog(LogType.Browser);
+
+        foreach (var logEntry in logs)
+        {
+            if (logEntry.Level == LogLevel.Severe) // Проверяем наличие ошибок
+            {
+                TestContext.Out.WriteLine($"Ошибка в консоли: {logEntry.Message}");
+                return;
+            }
+        }
     }
 }
