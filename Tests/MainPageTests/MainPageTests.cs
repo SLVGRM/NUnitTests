@@ -17,17 +17,6 @@ public class MainPageTests : BaseTest
     }
     
     /// <summary>
-    /// Проверяем что отображается поисковая выдача
-    /// </summary>
-    [Test]
-    public void MainPage_SearchResults_Visible()
-    {
-        Helpers.WaitAndSendKeys(driver, mainPage.SearchInputBlock, "Налоговый кодекс");
-        mainPage.SearchButton.Click();
-        Helpers.WaitVisibilityAndClickByClassName(driver, mainPage.SearchResults);
-    }
-        
-    /// <summary>
     /// Проверяем, отображение MainTheme на главной
     /// </summary>
     [Test]

@@ -12,6 +12,7 @@ public class BaseTest
     public void SetUp()
     {
         var options = new ChromeOptions();
+        options.PageLoadStrategy = PageLoadStrategy.Eager; ///тут устанавливается стратегияожидания загрузки, подробнее тут https://barancev.github.io/slow-loading-pages/
         options.AddArguments("start-maximized", "--disable-extensions", "--no-sandbox");
         // options.AddArgument("--headless=new");
         driver = new ChromeDriver(options);
